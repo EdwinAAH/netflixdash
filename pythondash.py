@@ -155,5 +155,11 @@ def actualizar_graficos(genero_seleccionado, anios):
 def actualizar_tamano_pagina(page_size):
     return page_size
 
-if __name__ == '__main__':
-    app.run(debug=True)
+from flask import Flask
+from dash import Dash
+
+server = Flask(__name__)  # Crear un servidor Flask
+app = Dash(__name__, server=server)  # Conectar Dash a Flask
+
+if __name__ == "__main__":
+    server.run()
